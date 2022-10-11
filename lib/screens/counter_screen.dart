@@ -20,12 +20,14 @@ class _CounterScreenState extends State<CounterScreen> {
         elevation: 0
       ),
       body: Center(
-        child: Column(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-          const Text('Numero de clicks'),
-          Text('$counter', style: textStyle)
+          children: <Widget> [
+            Column(),
+            Column(children: [const Text('Numero de clicks'),
+          Text('$counter', style: textStyle)],)
+          
         ]),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
