@@ -30,6 +30,10 @@ class _CounterScreenState extends State<CounterScreen> {
       counter = 0;
       setState(() {});
     }
+
+    void restart() {
+      setState(() {});
+    }
     
     return Scaffold(
       appBar: AppBar(
@@ -52,6 +56,7 @@ class _CounterScreenState extends State<CounterScreen> {
         increaseFn: increase,
         decreaseFn: decrease,
         resetFn: reset,
+        restartAlt: restart,
       ), 
       );
   }
@@ -62,12 +67,14 @@ class CustomFloatingActions extends StatelessWidget {
   final Function increaseFn;
   final Function decreaseFn;
   final Function resetFn;
+  final Function restartAlt;
 
   const CustomFloatingActions({
     Key? key, 
     required this.increaseFn,
     required this.decreaseFn,
-    required this.resetFn
+    required this.resetFn,
+    required this.restartAlt
   }) : super(key: key);
 
   @override
@@ -91,8 +98,8 @@ class CustomFloatingActions extends StatelessWidget {
         ),
 
         FloatingActionButton(
-          onPressed: null,
-          child: Icon(Icons.restart_alt)
+          onPressed: () => restartAlt(),
+          child: const Icon(Icons.restart_alt)
         )
       ],
     );
